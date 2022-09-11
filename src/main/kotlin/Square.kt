@@ -6,10 +6,14 @@ class Square(_name : String, _length : Double, _width : Double): Shape (_name){
     private val width = abs(_width)
 
     override fun printDimensions() {
-        val valid = if (validSquare()){
+        val valid : String = if (validSquare()){ //in real life, these would all be functions or not a valid construction
             "AM a valid Square"
-        } else {
+        } else if (length > 0 && width > 0){
             "am actually a Rectangle >;) "
+        } else if ( (length == 0.0 || width == 0.0) && length!=width ) {
+            "am actually a line >;) "
+        } else {
+            "am actually a point >;) "
         }
         println("Hi! I am a Square named $name!!!\nI $valid!!!\nLength : $length, Width : $width, Area : ${getArea()}")
     }
@@ -26,4 +30,5 @@ class Square(_name : String, _length : Double, _width : Double): Shape (_name){
     //We don't need these, but aren't they nice to have??
     fun getLength():Double{return length}
     fun getWidth():Double{return width}
+
 }
