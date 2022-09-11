@@ -7,18 +7,23 @@ class Square(_name : String, _length : Double, _width : Double): Shape (_name){
 
     override fun printDimensions() {
         val valid = if (validSquare()){
-            "a valid square"
+            "AM a valid Square"
         } else {
-            "actually a rectangle"
+            "am actually a Rectangle >;) "
         }
-        println("Hi! I am a square named: $name!!!\nI am $valid!!!\nLength : $length, Width : $width, Area : ${getArea()}")
+        println("Hi! I am a Square named $name!!!\nI $valid!!!\nLength : $length, Width : $width, Area : ${getArea()}")
     }
-
+    //Get area of square. Can be zero is square is line or point.
     override fun getArea(): Double {
         return length * width
     }
-
+    //Check if square is really a square.
     private fun validSquare(): Boolean{
+        if (length == 0.0 || width == 0.0)
+            return false
         return (length == width)
     }
+    //We don't need these, but aren't they nice to have??
+    fun getLength():Double{return length}
+    fun getWidth():Double{return width}
 }
